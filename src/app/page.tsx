@@ -1,11 +1,18 @@
+import { appConfig } from '@lib/appConfig';
+import { Container } from '@components/Container';
 
-
-export default function Home() {
+export default function Homepage() {
   return (
-    <main className='inter'>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </main>
-  )
+    <div>
+      <header>
+        <Container>{appConfig.header}</Container>
+      </header>
+      <main>
+        <Container>{appConfig.main}</Container>
+      </main>
+      <footer>
+        <Container>{appConfig.footer}</Container>
+      </footer>
+    </div>
+  );
 }
