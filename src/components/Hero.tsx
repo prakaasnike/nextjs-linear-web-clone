@@ -2,7 +2,7 @@ import { HeroContent } from '@lib/data';
 
 const HeroTitle = () => {
     return (
-        <h1 className="my-6 text-5xl">
+        <h1 className="my-6 text-5xl ">
             {HeroContent.titleTop}
             <br />
             {HeroContent.titleBottom}

@@ -2,6 +2,7 @@ import '@styles/globals.css';
 
 import { Container } from '@components/Container';
 import { Header } from '@components/Header';
+import { Footer } from '@components/Footer';
 
 export default function RootLayout({
   children,
@@ -20,7 +21,9 @@ export default function RootLayout({
         <Header />
         <main className="pt-nav-height">{children}</main>
         <footer>
-          <Container>footer</Container>
+          <Container>
+            <Footer />
+          </Container>
         </footer>
       </body>
     </html>
