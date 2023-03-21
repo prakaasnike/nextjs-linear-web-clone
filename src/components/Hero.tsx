@@ -1,4 +1,4 @@
-import { HeroContent } from '@lib/content/HeroContent';
+import { HeroContent } from '@lib/data';
 
 const HeroTitle = () => {
     return (

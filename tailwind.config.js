@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        black: '#000212',
+        white: {
+          DEFAULT: '#fff',
+          100: 'rgba(255, 255, 255, 0.08)',
+        },
+      },
       fontFamily: {
         sans: '"SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
       },
@@ -29,9 +36,6 @@ module.exports = {
         10: '4rem',
         11: '4.4rem',
         12: '4.8rem',
-      },
-      colors: {
-        background: '#000212',
       },
     },
   },
