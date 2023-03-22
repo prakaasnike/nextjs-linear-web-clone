@@ -9,9 +9,9 @@ import Link from 'next/link';
 export const Footer = () => {
     return (
         <footer className="mt-12 border-t border-white-200 py-[5.6rem] text-sm">
-            <Container className="flex justify-between">
+            <Container className="flex flex-col justify-between lg:flex-row">
                 <div>
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-row justify-between h-full lg:flex-col">
                         <div className="flex items-center text-gray-100">
                             <Logo className="w-4 h-4 mr-4" /> Linear - Designed worldwide
                         </div>
@@ -22,14 +22,14 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex">
+                <div className="flex flex-wrap">
                     {FooterLinks.map((column) => (
-                        <div key={column.title} className="min-w-[18rem]">
+                        <div key={column.title} className="mt-10 min-w[50%] lg:mt:0 lg:min-w-[18rem]">
                             <h3 className="mb-3 font-medium">{column.title}</h3>
                             <ul>
                                 {column.links.map((link) => (
                                     <li key={link.label} className="[&_a]:last:mb-0">
-                                        <Link href={link.href} className="block mb-3 text-gray-100">
+                                        <Link href={link.href} className="block mb-3 text-gray-100 transition-colors hover:text-white-100">
                                             {link.label}
                                         </Link>
                                     </li>

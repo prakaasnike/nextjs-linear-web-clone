@@ -6,10 +6,29 @@ import { Logo } from '@components/icons/logo';
 import { NavLinks } from '@lib/data';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        const html = document.querySelector('html');
+        if (html) html.classList.toggle('overflow-hidden', isOpen);
+    }, [isOpen]);
+
+    useEffect(() => {
+        const handleResize = () => setIsOpen(false);
+
+        window.addEventListener('orientationchange', handleResize);
+        window.addEventListener('resize', () => handleResize);
+
+        return () => {
+            window.removeEventListener('orientationchange', handleResize);
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [setIsOpen]);
+
 
     const handleToggle = () => setIsOpen(!isOpen);
 
@@ -26,8 +45,8 @@ export const Header = () => {
                     )}
                 >
                     <nav className={clsx(
-                        'fixed  top-nav-height left-0 h-[calc(100vh-var(--nav-height))] w-full overflow-auto bg-black transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:bg-transparent md:opacity-100  ',
-                        isOpen ? 'opacity-100' : 'opacity-0'
+                        'fixed  top-nav-height left-0 h-[calc(100vh_-_var(--nav-height))] md:translate-x-0 md:transition-none w-full overflow-auto bg-black transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:bg-transparent md:opacity-100  ',
+                        isOpen ? 'translate-x-0 opacity-100' : 'translate-x-[-100vw] opacity-0'
                     )}
                     >
                         <ul className="flex flex-col h-full ease-in md:flex-row md:items-center">
@@ -42,7 +61,7 @@ export const Header = () => {
                                     <Link
                                         href={link.href}
                                         className={clsx(
-                                            'flex h-nav-height w-full -pt-4 items-center text-md transition-[colors,transform] duration-300 hover:text-gray-100 md:translate-y-0 md:text-sm ',
+                                            'flex h-nav-height w-full -pt-4 items-center text-md transition-[color,transform] duration-300 hover:text-gray-100 md:translate-y-0 md:text-sm md:transition-colors ',
                                             isOpen && 'translate-y-0'
                                         )}
                                     >
