@@ -19,7 +19,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
-        <main className="pt-nav-height">{children}</main>
+        <main className="pt-nav-height bg-page-gradient">{children}</main>
         <footer>
           <Container>
             <Footer />
